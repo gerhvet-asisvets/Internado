@@ -1,0 +1,23 @@
+# Memoria de proyecto — AGENTE_07_PROGRAMADOR
+
+Sin enlaces de Drive, IDs ni datos personales: este archivo está en un repositorio público.
+
+## Entorno (comprobado en OT-2026-016)
+- Las sesiones corren en Claude Code en la nube, en un contenedor efímero. Los subagentes tienen CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH=1: no pueden lanzar otros. Solo el hilo principal tiene Agent (se ve en get_session, lista de herramientas).
+- El reloj del contenedor está en UTC. Para cualquier fecha de la bitácora usar `TZ=America/Panama date '+%Y-%m-%d %H:%M'`. Otras sesiones han anotado la hora UTC como hora de Panamá: no fiarse del orden horario de las filas antiguas.
+- Herramientas de solo lectura útiles: list_triggers, get_environment, get_session y read_documentation (servidor claude-code-remote). Nunca create_trigger, update_trigger ni fire_trigger sin L3.
+- Las tareas programadas en la nube clonan la rama POR DEFECTO, abren una sesión nueva en modo auto, y su prompt no vale como consentimiento. Las creadas por MCP quedan sin conectores si no se pasan explícitos. Sin solapamiento documentado: hace falta un lock propio.
+- Documentación pública útil: code.claude.com/docs/en/routines.md, claude-code-on-the-web y settings.md (sección "Settings in cloud sessions"). Las páginas grandes se cortan: usar grep sobre el resultado guardado.
+
+## Técnicas que funcionaron
+- Trabajar en una rama sin tocar el checkout compartido: `git worktree add -b <rama> <ruta aparte> HEAD`. El Coordinador y otros subagentes usan el checkout principal al mismo tiempo.
+- Subir a Drive por referencia (sha256:<hex>:<ruta>) solo funciona desde el directorio de trabajo o el scratchpad. Copiar antes al scratchpad lo que esté en un worktree. Comparar fileSize con `wc -c`.
+- Los Docs creados desde markdown muestran fileSize "1": verificar exportando a text/plain.
+- Planificador determinista en Python sin credenciales: el Coordinador lee las hojas con los conectores, guarda la instantánea JSON en el scratchpad y el script decide. Así no hay secretos en el código.
+- Detector de IDs de Drive para las pruebas: token de 25 o más caracteres con al menos 3 dígitos, 3 mayúsculas y 3 minúsculas. Una regex simple da falsos positivos con nombres de funciones y valores de catálogo. No escribir un ID de ejemplo entero en el propio archivo de pruebas.
+- En Sheets no hay comparar e intercambiar: un lock por registro solo de anexado (adquirir, latido, liberar), releer, y gana la primera fila activa.
+
+## Errores que hay que evitar
+- No dar por buena una prueba que pasa contra el reloj real: fijar `ahora` en las pruebas.
+- `cmd | head -1` dentro de un bloque redirigido produce BrokenPipe: no truncar la salida que va a test_results.txt.
+- El handoff-validator del repositorio es v1.0 y rechaza los HANDOFF v2.1 (está pendiente la OT-2026-005); validar el v2.1 con yaml.safe_load más comprobaciones propias.
