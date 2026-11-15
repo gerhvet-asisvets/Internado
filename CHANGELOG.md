@@ -1,5 +1,14 @@
 # Registro de cambios del sistema
 
+## 2.3 — 2026-11-15
+- **Skills v1.1 con las 16 propuestas aprobadas por el SUPERVISOR**, surgidas de las revisiones independientes de ACT-2026-001 (OT-2026-006 a 009) y de OT-2026-010.
+- normativa-panama: búsqueda por numsec cuando el buscador de Infojurídica falla; consulta de ambas fichas ante derogaciones de decretos modificatorios; conservar los requisitos del literal al resumir faltas; OCR con hilos limitados.
+- investigacion-sanitaria: cotejo del título de cada estudio; opciones FSIS 2021 con todos sus parámetros y lectura del eCFR por API; criterio de adulteración no es límite crítico; checklist de la matriz de peligros.
+- charlas-educativas: tiempos como bloques propios que no superan la duración pedida; reparto de claves del cuestionario; comprobación de cifras técnicas en el texto primario; contenidos operativos para inspectores y control de calidad.
+- diseno-audiovisual: procedimiento de verificación de la conversión a Slides; rótulos sin recortes, ejemplos fieles a la regla y preparación para imprenta.
+- agenda-personal: checklist de rotación o cambio de planta.
+- contrato-comun (skill): cómo verificar un Doc creado desde markdown. El documento CONTRATO_COMUN no cambia (sigue en 2.2).
+
 ## 2.2 — 2026-11-15
 - **Corrección de la falla de ACT-2026-001.** El Coordinador había corrido como subagente en segundo plano, sin la herramienta Agent, así que ejecutó los roles él mismo y se autoevaluó.
 - El Coordinador pasa a ser el hilo principal de cada sesión del repositorio (`.claude/settings.json`) y solo gestiona.

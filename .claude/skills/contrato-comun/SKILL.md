@@ -46,4 +46,5 @@ propuesta_skill:
 - **YAML y binarios:** `disableConversionToGoogleType: true`. Para subir un archivo local se usa `base64Content` = `sha256:<hex>:<ruta absoluta>`.
 - **Límite de carga:** unos 3 MB por archivo. Un archivo mayor no se sube: se deja su enlace oficial y se registra el error.
 - Las herramientas de Drive no editan el contenido de un archivo existente. Una corrección es una versión nueva, y la anterior se mueve a VERSIONES_ANTERIORES.
+- **Verificar un Doc creado desde markdown:** `read_file_content` muestra escapes de markdown (barras invertidas, asteriscos en tablas) que no están en el documento. Exportarlo con `download_file_content` en text/plain antes de dar por malo el formato. En markdown, los saltos de línea simples dentro de un párrafo se unen: usar una línea en blanco o una lista.
 - **Sheets:** append_values para añadir filas; update_values en celdas concretas, leyendo antes de escribir.
