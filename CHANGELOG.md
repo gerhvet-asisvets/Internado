@@ -1,5 +1,9 @@
 # Registro de cambios del sistema
 
+## 2.4 — 2026-11-15
+- **charlas-educativas v1.2**, con las 2 propuestas de HO-2026-010 (OT-2026-011) aprobadas por el SUPERVISOR: en charlas de 30 minutos o menos, cuestionario de 6 preguntas como máximo y ejercicio exprés dentro de la duración; extensión del documento de apoyo medida en el PDF exportado, con los anexos de control declarados aparte.
+- CONTRATO_COMUN sin cambios (sigue en 2.2).
+
 ## 2.3 — 2026-11-15
 - **Skills v1.1 con las 16 propuestas aprobadas por el SUPERVISOR**, surgidas de las revisiones independientes de ACT-2026-001 (OT-2026-006 a 009) y de OT-2026-010.
 - normativa-panama: búsqueda por numsec cuando el buscador de Infojurídica falla; consulta de ambas fichas ante derogaciones de decretos modificatorios; conservar los requisitos del literal al resumir faltas; OCR con hilos limitados.
