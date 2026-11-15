@@ -1,0 +1,33 @@
+# Plantilla HANDOFF v2.0 — ver CONTRATO_COMUN sección 6.
+# Guardar en Drive: 09_ARCHIVO_HISTORICO/HANDOFF/HO-AAAA-NNN_ACT-AAAA-NNN_AGENTE_XX.yaml
+# Las fechas van siempre entre comillas.
+handoff_version: '2.0'
+handoff_id: 'HO-AAAA-NNN'
+ot_id: 'OT-AAAA-NNN'
+actividad_id: 'ACT-AAAA-NNN'
+origen: 'AGENTE_XX_NOMBRE'
+destino: 'AGENTE_00_COORDINADOR'
+plataforma: 'Claude'            # Claude | ChatGPT | manual
+tipo: 'documento'               # consulta | actividad | tarea | entrega | documento | recurso | audiovisual
+resumen: ''
+datos: {}
+fuentes:
+  - titulo: ''
+    url: ''
+    fecha_consulta: 'AAAA-MM-DD'
+    tipo: 'oficial'             # oficial | cientifica | secundaria
+    verificada: false
+entregables:
+  - titulo: ''
+    url: ''
+    formato: 'doc'              # doc | slides | sheet | pdf | png | mp4 | mp3
+    version: '1.0'
+pendientes: []
+riesgos: []
+calidad:
+  HECHO_VERIFICADO: []
+  INTERPRETACION: []
+  HIPOTESIS: []
+  DATO_FALTANTE: []
+estado_aprobacion: 'borrador'
+fecha_generacion: 'AAAA-MM-DD'

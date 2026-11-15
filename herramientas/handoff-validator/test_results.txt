@@ -1,0 +1,37 @@
+Ejecucion independiente de las pruebas V01-V24
+Fecha: 2026-11-11 (America/Panama)
+Entorno: Claude, contenedor aislado sin red. Python 3.13.18, PyYAML 6.0.3
+Archivos probados (SHA-256):
+  27fad50c6b3743b1bff65402a463952ead3d807df42327107672df3728540cba  handoff_validator.py
+  154eaf0b0f1cb9b5c07f68b638ba3752dc2d0942ab396e499fac122f5480ccf3  test_validator.py
+Comando: python -B -m unittest -v test_validator
+
+test_V01 (test_validator.Cases.test_V01) ... ok
+test_V02 (test_validator.Cases.test_V02) ... ok
+test_V03 (test_validator.Cases.test_V03) ... ok
+test_V04 (test_validator.Cases.test_V04) ... ok
+test_V05 (test_validator.Cases.test_V05) ... ok
+test_V06 (test_validator.Cases.test_V06) ... ok
+test_V07 (test_validator.Cases.test_V07) ... ok
+test_V08 (test_validator.Cases.test_V08) ... ok
+test_V09 (test_validator.Cases.test_V09) ... ok
+test_V10 (test_validator.Cases.test_V10) ... ok
+test_V11 (test_validator.Cases.test_V11) ... ok
+test_V12 (test_validator.Cases.test_V12) ... ok
+test_V13 (test_validator.Cases.test_V13) ... ok
+test_V14 (test_validator.Cases.test_V14) ... ok
+test_V15 (test_validator.Cases.test_V15) ... ok
+test_V16 (test_validator.Cases.test_V16) ... ok
+test_V17 (test_validator.Cases.test_V17) ... ok
+test_V18 (test_validator.Cases.test_V18) ... ok
+test_V19 (test_validator.Cases.test_V19) ... ok
+test_V20 (test_validator.Cases.test_V20) ... ok
+test_V21 (test_validator.Cases.test_V21) ... ok
+test_V22 (test_validator.Cases.test_V22) ... ok
+test_V23 (test_validator.Cases.test_V23) ... ok
+test_V24 (test_validator.Cases.test_V24) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in <1s
+
+OK
