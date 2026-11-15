@@ -1,5 +1,13 @@
 # Registro de cambios del sistema
 
+## 2.2 — 2026-11-15
+- **Corrección de la falla de ACT-2026-001.** El Coordinador había corrido como subagente en segundo plano, sin la herramienta Agent, así que ejecutó los roles él mismo y se autoevaluó.
+- El Coordinador pasa a ser el hilo principal de cada sesión del repositorio (`.claude/settings.json`) y solo gestiona.
+- Los 8 especialistas quedan definidos como subagentes (`.claude/agents/`), cada uno con `contrato-comun`, su skill de especialidad y memoria de proyecto. Se despachan en primer plano.
+- Skills nuevas: contrato-comun, coordinacion-internado, normativa-panama, investigacion-sanitaria, charlas-educativas, diseno-audiovisual, agenda-personal, asistencias-entregas, tareas-personales, programacion-herramientas. Las cuatro primeras de especialidad parten con las lecciones de ACT-2026-001.
+- HANDOFF v2.1: campo opcional `propuesta_skill`.
+- Contrato: activación con subagentes (sección 2), regla de independencia de la evaluación (sección 9), especialización por skills y memoria (sección 12).
+
 ## 2.1 — 2026-11-15
 - El repositorio pasa a ser la fuente versionada del sistema: los cambios al contrato y a las fichas se hacen primero aquí y después se publican en Drive (contrato, sección 12).
 - Regla nueva de privacidad: el repositorio es público; no se publican enlaces de Drive, datos personales ni productos (contrato, sección 11).

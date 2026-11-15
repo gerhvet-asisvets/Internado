@@ -15,16 +15,28 @@ Fuente versionada del sistema de agentes que organiza el internado médico-veter
 ## Estructura
 
 ```
+CLAUDE.md                      Reglas del repositorio (privacidad, flujo de cambios)
+.claude/settings.json          La sesión principal arranca como el Coordinador
+.claude/agents/                Subagentes: coordinador y 8 especialistas
+.claude/skills/                Skills: contrato-comun, coordinacion-internado y una por especialidad
+.claude/agent-memory/          Memoria de cada especialista (se crea al trabajar)
 sistema/
-  CONTRATO_COMUN.md          Reglas comunes únicas (todos los agentes lo leen)
-  agentes/AGENTE_00..08.md   Fichas de especialidad
-  plantillas/HANDOFF_v2.0.yaml
-herramientas/
-  handoff-validator/         Validador de HANDOFF (v1.0; pendiente migrar a v2.0: OT-2026-005)
-docs/
-  ESQUEMA_HOJAS.md           Pestañas y columnas de la bitácora y del control interno
+  CONTRATO_COMUN.md            Reglas comunes únicas
+  agentes/AGENTE_00..08.md     Fichas de especialidad (también en Drive para ChatGPT)
+  plantillas/HANDOFF_v2.1.yaml
+herramientas/handoff-validator Validador de HANDOFF (v1.0; migración a v2.1: OT-2026-005)
+docs/ESQUEMA_HOJAS.md
 CHANGELOG.md
 ```
+
+## Cómo se usa
+
+- **Claude Code:** abre una sesión en este repositorio y pide la tarea. El Coordinador planifica, te pide aprobación y despacha a los especialistas como subagentes. Cada uno trabaja con su skill, guarda los productos y el HANDOFF en Drive y deja todo registrado en la bitácora.
+- **ChatGPT:** abre la conversación del agente y escribe *"Revisa tu cola de tareas"*. El agente lee el contrato, su ficha y su skill desde este repositorio público.
+
+## Cómo se especializan los agentes
+
+Cada especialista anota en su memoria lo que aprende en cada orden de trabajo y propone mejoras a su skill en el HANDOFF (`propuesta_skill`). El Coordinador las filtra, tú las apruebas y quedan integradas en la skill con su versión y su entrada en `CHANGELOG.md`.
 
 ## Agentes
 
