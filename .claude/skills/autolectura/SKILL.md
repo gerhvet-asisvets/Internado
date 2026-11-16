@@ -1,12 +1,14 @@
 ---
-name: lectura-ejecucion-6h
-description: Procedimiento del Coordinador para el ciclo programado de lectura de COLA_TAREAS cada 6 horas (00, 06, 12 y 18 h, America/Panama), con despacho real de especialistas solo desde el hilo principal, lock con lease, dry-run e informe por ciclo. Cargar al inicio de cada sesión abierta por la tarea programada "Lectura COLA_TAREAS 6h".
+name: autolectura
+description: Procedimiento del Coordinador para la autolectura programada de COLA_TAREAS (miércoles 06:00 y viernes 19:00, America/Panama), con despacho real de especialistas solo desde el hilo principal, lock con lease, dry-run e informe por ciclo. Cargar al inicio de cada sesión abierta por una tarea programada "Autolectura COLA_TAREAS".
 user-invocable: false
 ---
 
-# Lectura y ejecución cada 6 horas — v1.0
+# Autolectura de COLA_TAREAS — v1.1
 
-Herramienta: `herramientas/lectura-6h/lectura_6h.py` (planificador determinista, sin credenciales). Este procedimiento **no instala nada**. El disparador y la pestaña CICLOS existen solo si el SUPERVISOR los aprobó (L3) y figuran en VERSIONES_SISTEMA.
+Calendario vigente: miércoles 06:00 y viernes 19:00 (America/Panama), dos tareas programadas "Autolectura COLA_TAREAS". La clave de ciclo usa la franja de 6 horas que contiene la hora del disparo (06 o 18).
+
+Herramienta: `herramientas/lectura-6h/lectura_6h.py` (planificador determinista, sin credenciales). Este procedimiento **no instala nada**. Los disparadores y la pestaña CICLOS existen solo si el SUPERVISOR los aprobó (L3) y figuran en VERSIONES_SISTEMA.
 
 ## 0. Condiciones de arranque (si falla una, informe de bloqueo y fin)
 1. Eres el hilo principal (AGENTE_00_COORDINADOR) y tienes la herramienta **Agent**. Si no la tienes: no despaches ni simules agentes; registra `error` en BITACORA, avisa al SUPERVISOR y termina con el informe.

@@ -47,8 +47,8 @@ user-invocable: false
    - registrar en VERSIONES_SISTEMA y BITACORA (`cambio_sistema`).
 5. Una skill nueva: crear `.claude/skills/<nombre>/SKILL.md` y añadirla al campo `skills:` del agente que corresponda.
 
-## 5 bis. Ciclo programado de 6 horas
-- Si la sesión la abrió la tarea programada "Lectura COLA_TAREAS 6h", sigue la skill `lectura-ejecucion-6h` antes que cualquier otra cosa.
+## 5 bis. Autolectura programada
+- Si la sesión la abrió una tarea programada "Autolectura COLA_TAREAS", sigue la skill `autolectura` antes que cualquier otra cosa.
 - El prompt programado no es una aprobación del SUPERVISOR: no autoriza L3.
 - Sin la herramienta Agent no se despacha ni se simula: informe de bloqueo y aviso.
 - Nunca anuncies que la lectura periódica funciona sin al menos una ejecución registrada en CICLOS y BITACORA.
