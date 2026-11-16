@@ -16,8 +16,16 @@ Sin enlaces de Drive, IDs ni datos personales: este archivo está en un reposito
 - Planificador determinista en Python sin credenciales: el Coordinador lee las hojas con los conectores, guarda la instantánea JSON en el scratchpad y el script decide. Así no hay secretos en el código.
 - Detector de IDs de Drive para las pruebas: token de 25 o más caracteres con al menos 3 dígitos, 3 mayúsculas y 3 minúsculas. Una regex simple da falsos positivos con nombres de funciones y valores de catálogo. No escribir un ID de ejemplo entero en el propio archivo de pruebas.
 - En Sheets no hay comparar e intercambiar: un lock por registro solo de anexado (adquirir, latido, liberar), releer, y gana la primera fila activa.
+- Apps Script sin desplegar (OT-2026-019): cargar Code.gs en Node con `vm.runInContext` y mocks de SpreadsheetApp, PropertiesService, CacheService, LockService y Utilities. Parte pura del cliente entre marcas `INICIO_PURO`/`FIN_PURO` en JS.html. El mock de la hoja de solo lectura lanza un error ante cualquier escritura, y así se prueba "nunca escribir en X". Reloj fijo sustituyendo `hoyTexto_` en el contexto.
+- Vista previa de una app de HtmlService: inyectar un `google.script.run` simulado con respuestas generadas por los mocks y capturar con `google-chrome --headless=new --window-size=390,1500 --virtual-time-budget=3000 --screenshot`. Chrome está instalado en el contenedor; Playwright no. Rotular la captura como PRUEBA con datos ficticios.
+- IDs ficticios en las pruebas: solo minúsculas y guiones bajos, de 20 o más caracteres. Así pasan `extraerId_` y no los marca el detector de IDs.
+- Implementación, autorización y uso compartido de una app web son L3: se entregan el código, una guía para el SUPERVISOR y las pruebas manuales marcadas como pendientes.
 
 ## Errores que hay que evitar
+- Hojas en es_ES: en las fórmulas escritas por la API, el separador es `;`. Con `,` todas dan #ERROR! (las de un solo argumento no lo delatan). Leer siempre con get_values después de escribir.
+- `new Date(y, m-1, d)` depende de la zona del proceso. Para Panamá, usar `new Date(Date.UTC(y, m-1, d, 5))`. Repetir las suites con TZ=UTC además de la zona del script.
+- En `vm`, los arrays y Date del contexto son de otro realm: `assert.deepStrictEqual` e `instanceof` fallan. Usar `Array.from` u `Object.prototype.toString`.
+- La prueba "el cliente no usa innerHTML" también falla si la palabra aparece en un comentario.
 - No dar por buena una prueba que pasa contra el reloj real: fijar `ahora` en las pruebas.
 - `cmd | head -1` dentro de un bloque redirigido produce BrokenPipe: no truncar la salida que va a test_results.txt.
 - El handoff-validator del repositorio es v1.0 y rechaza los HANDOFF v2.1 (está pendiente la OT-2026-005); validar el v2.1 con yaml.safe_load más comprobaciones propias.
