@@ -1,5 +1,12 @@
 # Registro de cambios del sistema
 
+## 2.6 — 2026-11-15
+- **Skill nueva lectura-ejecucion-6h v1.0** (OT-2026-016, HO-2026-012, aprobada por el SUPERVISOR, A1): procedimiento del Coordinador para el ciclo programado de lectura de COLA_TAREAS a las 00, 06, 12 y 18 h (America/Panama), con despacho solo desde el hilo principal, lock con lease en la pestaña CICLOS, dry-run, límites por ciclo e informe. Se añade al campo `skills:` de agente-00-coordinador.
+- coordinacion-internado: sección 5 bis, que remite al ciclo programado.
+- Herramienta nueva `herramientas/lectura-6h` v0.1.0: planificador determinista sin credenciales y 48 pruebas (P01-P12 y S01-S06) con datos ficticios.
+- Estructura de la bitácora: pestaña CICLOS (solo de anexado) y fila PER-2026-005 LECTURA_6H en PERMISOS (fase 1: solo_lectura durante 7 días).
+- CONTRATO_COMUN sin cambios (sigue en 2.2).
+
 ## 2.5 — 2026-11-15
 - **normativa-panama v1.2**, con las 3 propuestas de HO-2026-013 (OT-2026-013) aprobadas por el SUPERVISOR: búsqueda en Infojurídica por Gaceta, autoridad o número; revisar "DEROGADO POR" en la norma antigua antes de declarar que no existe norma, y regla de adopción de RTCA; checklist de competencias DINACAVV/MIDA, emergencias zoosanitarias vigentes y no dividir PDF con pdfunite. Lección: el DE 147/2022 es la norma nacional de aves.
 - La propuesta de lectura cada 6 horas (OT-2026-016) pasa a numerarse 2.6.

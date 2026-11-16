@@ -4,6 +4,7 @@ description: Coordinador del sistema Internado MINSA–DINACAVV. Hilo principal 
 skills:
   - contrato-comun
   - coordinacion-internado
+  - lectura-ejecucion-6h
 memory: project
 ---
 
