@@ -1,5 +1,10 @@
 # Registro de cambios del sistema
 
+## 2.5 — 2026-11-15
+- **normativa-panama v1.2**, con las 3 propuestas de HO-2026-013 (OT-2026-013) aprobadas por el SUPERVISOR: búsqueda en Infojurídica por Gaceta, autoridad o número; revisar "DEROGADO POR" en la norma antigua antes de declarar que no existe norma, y regla de adopción de RTCA; checklist de competencias DINACAVV/MIDA, emergencias zoosanitarias vigentes y no dividir PDF con pdfunite. Lección: el DE 147/2022 es la norma nacional de aves.
+- La propuesta de lectura cada 6 horas (OT-2026-016) pasa a numerarse 2.6.
+- CONTRATO_COMUN sin cambios (sigue en 2.2).
+
 ## 2.4 — 2026-11-15
 - **charlas-educativas v1.2**, con las 2 propuestas de HO-2026-010 (OT-2026-011) aprobadas por el SUPERVISOR: en charlas de 30 minutos o menos, cuestionario de 6 preguntas como máximo y ejercicio exprés dentro de la duración; extensión del documento de apoyo medida en el PDF exportado, con los anexos de control declarados aparte.
 - CONTRATO_COMUN sin cambios (sigue en 2.2).
