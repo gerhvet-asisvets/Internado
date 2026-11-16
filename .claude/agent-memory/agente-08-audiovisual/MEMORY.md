@@ -45,3 +45,20 @@
 ### Errores que hay que evitar
 - Si un cambio visual contradice la nota del expositor (por ejemplo, la nota dice "llevan '?'"), hay que ajustar la nota y declararlo como pendiente para el Coordinador, porque la OT puede pedir "sin cambios de texto".
 - El handoff-validator del repositorio valida HANDOFF v1.0, no v2.1: no sirve para la v2.1 (OT-2026-005 pendiente). Basta con comprobar que el YAML se puede analizar.
+
+## OT-2026-015 (guía visual de estudio y versión de primer día, ACT-2026-002)
+
+### Técnicas que funcionaron
+- Generar todo el contenido desde una lista en Python: cada afirmación lleva su sección de origen y fragmentos literales de la fuente. Con una sola lista salen la guía, el primer día y la tabla de fidelidad (xlsx convertido a Sheet), y el validador busca cada fragmento en el texto exportado (Doc a text/plain, CRLF quitado y espacios normalizados). 664 de 664 hallados.
+- Copiar de forma literal las tablas del documento aprobado (filas separadas por tabuladores en la exportación de texto) y extraerlas por número de línea a JSON. Después, comprobar con pdftotext que todas aparecen en el PDF.
+- SVG escritos a mano a 1 unidad = 1 px CSS, sin escalar y con texto de 12 px o más (9 pt). Calcular la altura de cada caja por el número de líneas (función de ajuste por palabras de unos 0,47 x cuerpo por carácter) en vez de fijarla.
+- Auditoría de Chromium antes del PDF: elementos más anchos que la página y fuentes de menos de 12 px fuera de los SVG. Pie con displayHeaderFooter y footerTemplate (Carlito del sistema a 9 pt).
+- Hojas de contactos con PIL desde pdftoppm (-r 40 para el documento completo y -r 80 para las figuras). Con 32 páginas a 40 ppp, el PNG pesa unos 1,9 MB.
+- Una subcarpeta nueva: comprobar antes con search_files que no existe en la carpeta del agente (había otras con el mismo nombre en otras carpetas).
+
+### Errores que hay que evitar
+- Una figura de página completa que rebasa el alto útil arrastra el pie de figura y deja una página casi vacía. El alto útil de un A4 con márgenes de 12 y 15 mm es de unos 1 000 px, menos el h2, la leyenda y el pie.
+- Si los rótulos de un esquema se ponen en una columna estrecha, se superponen. Es mejor apilar los paneles a todo el ancho con una columna de rótulos de unos 60 caracteres.
+- Una tabla pequeña dentro de una cuadrícula de dos columnas parte las cifras ("≥ 8" / "h"): usar table-layout fixed y white-space nowrap en los valores.
+- No usar `rm` con comodines relativos después de `cd`: el control de seguridad lo bloquea. Escribir los archivos nuevos con otro nombre o usar rutas absolutas en Python.
+- Los glifos ✓ ▶ ◆ ■ no están en Carlito; usar formas en CSS o SVG.
