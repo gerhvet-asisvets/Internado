@@ -32,3 +32,16 @@
 - Google Slides corta la línea después de "°" incluso con espacio de no separación ("4 °" / "C"). Solo se ve en la exportación de Slides, no en el PDF de LibreOffice. Verificar cada carga y, si ocurre, mover el salto de línea (párrafo propio o ancho distinto). Me costó dos recargas.
 - Antes de subir otra carga, comprobar con search_files qué existe ya en la carpeta, para no duplicar después de una interrupción.
 - Una nota visual que pide marcar en verde lo que el ejemplo no dice afirma de forma implícita algo no aprobado. Usar "por comprobar" y declararlo.
+
+## OT-2026-017 (diapositivas v1.2, cambio puntual en una diapositiva, ACT-2026-001)
+
+### Técnicas que funcionaron
+- Cambio puntual sobre una versión aprobada: regenerar primero la versión anterior con su script y comprobar que el .pptx sale idéntico parte a parte (zipfile, comparar cada entrada). Luego aplicar solo el cambio y comprobar que solo difieren `slideN.xml` y `notesSlideN.xml`.
+- Prueba de "el resto es idéntico": exportar a PDF el Slides anterior y el nuevo, `pdftoppm -r 60` y `ImageChops.difference(...).getbbox()` por página. `None` significa que no hay diferencia de píxeles; en la página cambiada, la caja delimita la zona exacta del cambio.
+- El script de cobertura ampliado compara además, por diapositiva, el texto, las notas y la geometría de las formas entre dos .pptx exportados de Slides.
+- Una marca de verificación dibujada con `build_freeform` (dos segmentos, línea blanca de 3 pt sobre un cuadrado verde) se conserva bien en Google Slides y evita glifos que Arial no tiene.
+- Guardar los scripts de cada OT en la carpeta del scratchpad de esa OT: el de la OT anterior seguía allí y permitió reproducir la versión exacta.
+
+### Errores que hay que evitar
+- Si un cambio visual contradice la nota del expositor (por ejemplo, la nota dice "llevan '?'"), hay que ajustar la nota y declararlo como pendiente para el Coordinador, porque la OT puede pedir "sin cambios de texto".
+- El handoff-validator del repositorio valida HANDOFF v1.0, no v2.1: no sirve para la v2.1 (OT-2026-005 pendiente). Basta con comprobar que el YAML se puede analizar.

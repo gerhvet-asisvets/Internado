@@ -1,0 +1,10 @@
+{
+  "dry_run": true,
+  "max_trabajos_por_ciclo": 2,
+  "max_duracion_min": 90,
+  "lease_min": 120,
+  "max_reintentos_despacho": 1,
+  "umbral_en_curso_h": 24,
+  "bloque_bit": ["BIT-2026-0900", "BIT-2026-0949"],
+  "minuto_disparo": 7
+}
