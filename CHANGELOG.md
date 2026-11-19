@@ -1,5 +1,11 @@
 # Registro de cambios del sistema
 
+## 2.8 — 2026-11-19 (propuesta, pendiente de evaluación del Coordinador)
+- **handoff-validator v2.1** (OT-2026-005, HO-2026-019, aprobada por el SUPERVISOR el 2026-11-19): `handoff_validator_v2.py` valida el formato HANDOFF v2.1 del CONTRATO_COMUN v2.2 (sección 6). Comprueba los 17 campos obligatorios y el opcional `propuesta_skill`, `handoff_version: '2.1'`, IDs HO-AAAA-NNN, OT-AAAA-NNN y ACT-AAAA-NNN o vacío, catálogo de 9 agentes, destino siempre el Coordinador, plataforma, tipo, estados de la sección 8, entregables con URL completa obligatoria (salvo tipo consulta), fuentes, calidad y propuesta_skill. Conserva los límites de seguridad, la huella sha256 y la detección de repetidos de la v1.0, y añade el aviso de mismo handoff_id con contenido diferente, varios archivos por llamada y `--estricto-formato`.
+- `test_validator_v2.py`: 42 pruebas con datos ficticios (W01-W42), todas correctas (`test_results_v2.txt`). Incluye una prueba que impide enlaces e IDs de Drive en los archivos del validador.
+- `SKILL.md` del validador explica el uso de la v2.1 y de la v1.0. Los archivos de la v1.0 (`handoff_validator.py`, `test_validator.py`, `test_results.txt`) quedan sin cambios.
+- CONTRATO_COMUN sin cambios (sigue en 2.2).
+
 ## 2.7 — 2026-11-16
 - **Skill `lectura-ejecucion-6h` renombrada a `autolectura` (v1.1)**, por decisión del SUPERVISOR: calendario de dos ciclos por semana (miércoles 06:00 y viernes 19:00, America/Panama) en dos tareas programadas "Autolectura COLA_TAREAS". Se actualizan coordinacion-internado (5 bis), agente-00-coordinador y el README de la herramienta. Sin cambios de procedimiento; el paso a despachar trabajos sigue fijado para el 2026-11-22.
 - CONTRATO_COMUN sin cambios (sigue en 2.2).

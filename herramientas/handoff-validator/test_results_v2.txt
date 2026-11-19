@@ -1,0 +1,57 @@
+Ejecucion de las pruebas W01-W42 (validador HANDOFF v2.1)
+Fecha: 2026-11-19 02:35 (America/Panama)
+Entorno: Claude Code, contenedor aislado. Python 3.13.18, PyYAML 6.0.3
+Datos: 100 % ficticios (dominios example.org / example.com)
+Archivos probados (SHA-256):
+  60c47c550c906d7dc234ec10a7c472531afb70869ac32644bd60eabc8772e095  handoff_validator_v2.py
+  aa472a91d59299f2b5ae3d0c7956111af8f7b404e83d48836489105d03337434  test_validator_v2.py
+  843887fa39b4ca6ab3e92ce6b785f6fff540b363db3e1556b1bb68232d1db8ad  SKILL.md
+Comando: python -B -m unittest -v test_validator_v2
+
+test_W01_base_completo (test_validator_v2.Accepted.test_W01_base_completo) ... ok
+test_W02_sin_propuesta_skill (test_validator_v2.Accepted.test_W02_sin_propuesta_skill) ... ok
+test_W03_actividad_vacia (test_validator_v2.Accepted.test_W03_actividad_vacia) ... ok
+test_W04_consulta_sin_entregables_avisa (test_validator_v2.Accepted.test_W04_consulta_sin_entregables_avisa) ... ok
+test_W05_formato_fuera_de_plantilla_avisa (test_validator_v2.Accepted.test_W05_formato_fuera_de_plantilla_avisa) ... ok
+test_W06_estado_aprobado_avisa (test_validator_v2.Accepted.test_W06_estado_aprobado_avisa) ... ok
+test_W07_fuente_sin_url_no_verificada_avisa (test_validator_v2.Accepted.test_W07_fuente_sin_url_no_verificada_avisa) ... ok
+test_W08_nueva_skill (test_validator_v2.Accepted.test_W08_nueva_skill) ... ok
+test_W09_texto_con_instrucciones_es_dato (test_validator_v2.Accepted.test_W09_texto_con_instrucciones_es_dato) ... ok
+test_W10_plataformas_y_tipos (test_validator_v2.Accepted.test_W10_plataformas_y_tipos) ... ok
+test_W40_cli_no_imprime_contenido (test_validator_v2.CommandLine.test_W40_cli_no_imprime_contenido) ... ok
+test_W37_duplicado_identico (test_validator_v2.Fingerprint.test_W37_duplicado_identico) ... ok
+test_W38_mismo_id_contenido_distinto (test_validator_v2.Fingerprint.test_W38_mismo_id_contenido_distinto) ... ok
+test_W39_huella_independiente_del_orden (test_validator_v2.Fingerprint.test_W39_huella_independiente_del_orden) ... ok
+test_W11_version_10 (test_validator_v2.Rejected.test_W11_version_10) ... ok
+test_W12_version_20 (test_validator_v2.Rejected.test_W12_version_20) ... ok
+test_W13_falta_handoff_id (test_validator_v2.Rejected.test_W13_falta_handoff_id) ... ok
+test_W14_falta_calidad (test_validator_v2.Rejected.test_W14_falta_calidad) ... ok
+test_W15_campo_superior_extra (test_validator_v2.Rejected.test_W15_campo_superior_extra) ... ok
+test_W16_handoff_id_mal_formado (test_validator_v2.Rejected.test_W16_handoff_id_mal_formado) ... ok
+test_W17_ot_id_vacio_o_mal_formado (test_validator_v2.Rejected.test_W17_ot_id_vacio_o_mal_formado) ... ok
+test_W18_actividad_borrador_sin_id (test_validator_v2.Rejected.test_W18_actividad_borrador_sin_id) ... ok
+test_W19_origen_fuera_de_catalogo (test_validator_v2.Rejected.test_W19_origen_fuera_de_catalogo) ... ok
+test_W20_destino_no_coordinador (test_validator_v2.Rejected.test_W20_destino_no_coordinador) ... ok
+test_W21_plataforma_fuera_de_catalogo (test_validator_v2.Rejected.test_W21_plataforma_fuera_de_catalogo) ... ok
+test_W22_tipo_fuera_de_catalogo (test_validator_v2.Rejected.test_W22_tipo_fuera_de_catalogo) ... ok
+test_W23_estado_fuera_de_catalogo (test_validator_v2.Rejected.test_W23_estado_fuera_de_catalogo) ... ok
+test_W24_sin_entregables_en_documento (test_validator_v2.Rejected.test_W24_sin_entregables_en_documento) ... ok
+test_W25_url_entregable_incompleta (test_validator_v2.Rejected.test_W25_url_entregable_incompleta) ... ok
+test_W26_entregable_sin_version (test_validator_v2.Rejected.test_W26_entregable_sin_version) ... ok
+test_W27_version_numerica_no_texto (test_validator_v2.Rejected.test_W27_version_numerica_no_texto) ... ok
+test_W28_formato_estricto (test_validator_v2.Rejected.test_W28_formato_estricto) ... ok
+test_W29_fuente_tipo_y_verificada (test_validator_v2.Rejected.test_W29_fuente_tipo_y_verificada) ... ok
+test_W30_fuente_verificada_sin_url (test_validator_v2.Rejected.test_W30_fuente_verificada_sin_url) ... ok
+test_W31_calidad_incompleta (test_validator_v2.Rejected.test_W31_calidad_incompleta) ... ok
+test_W32_propuesta_skill_tipo_y_campos (test_validator_v2.Rejected.test_W32_propuesta_skill_tipo_y_campos) ... ok
+test_W33_fechas (test_validator_v2.Rejected.test_W33_fechas) ... ok
+test_W34_yaml_peligroso (test_validator_v2.Rejected.test_W34_yaml_peligroso) ... ok
+test_W35_limites (test_validator_v2.Rejected.test_W35_limites) ... ok
+test_W36_ids_anidados (test_validator_v2.Rejected.test_W36_ids_anidados) ... ok
+test_W41_sin_enlaces_ni_ids_de_drive (test_validator_v2.Repository.test_W41_sin_enlaces_ni_ids_de_drive) ... ok
+test_W42_url_helper (test_validator_v2.Repository.test_W42_url_helper) ... ok
+
+----------------------------------------------------------------------
+Ran 42 tests in <1s
+
+OK
