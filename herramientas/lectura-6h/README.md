@@ -1,4 +1,4 @@
-# lectura-6h — planificador de la lectura de COLA_TAREAS cada 6 horas
+# lectura-6h — planificador de la autolectura de COLA_TAREAS (skill `autolectura`; miércoles 06:00 y viernes 19:00, America/Panama)
 
 **Estado: PROTOTIPO SIN DESPLEGAR. Programado y funcionando: NO.**
 Origen: OT-2026-016, AGENTE_07_PROGRAMADOR, 2026-11-15. Versión 0.1.0.
@@ -21,7 +21,6 @@ El script **no escribe en Google, no llama a la herramienta Agent y no evalúa**
 | `datos_ficticios/instantanea_ficticia.json` | 12 OT ficticias (OT-2099-*) que cubren todos los casos |
 | `config.ejemplo.json` | Configuración de ejemplo (sin secretos). La real va fuera del repositorio: archivo en `LECTURA6H_CONFIG` o JSON en línea en la variable `LECTURA6H_CONFIG_JSON` del entorno de nube |
 | `test_results.txt` | Resultado de la última ejecución de las pruebas |
-| `(propuesta aplicada en el sistema 2.6)` | Diff propuesto (no aplicado) de la skill nueva lectura-ejecucion-6h, coordinacion-internado, agente-00-coordinador y CHANGELOG |
 
 ## Uso
 ```

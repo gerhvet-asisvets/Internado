@@ -1,5 +1,9 @@
 # Registro de cambios del sistema
 
+## 2.7 — 2026-11-16
+- **Skill `lectura-ejecucion-6h` renombrada a `autolectura` (v1.1)**, por decisión del SUPERVISOR: calendario de dos ciclos por semana (miércoles 06:00 y viernes 19:00, America/Panama) en dos tareas programadas "Autolectura COLA_TAREAS". Se actualizan coordinacion-internado (5 bis), agente-00-coordinador y el README de la herramienta. Sin cambios de procedimiento; el paso a despachar trabajos sigue fijado para el 2026-11-22.
+- CONTRATO_COMUN sin cambios (sigue en 2.2).
+
 ## 2.6 — 2026-11-15
 - **Skill nueva lectura-ejecucion-6h v1.0** (OT-2026-016, HO-2026-012, aprobada por el SUPERVISOR, A1): procedimiento del Coordinador para el ciclo programado de lectura de COLA_TAREAS a las 00, 06, 12 y 18 h (America/Panama), con despacho solo desde el hilo principal, lock con lease en la pestaña CICLOS, dry-run, límites por ciclo e informe. Se añade al campo `skills:` de agente-00-coordinador.
 - coordinacion-internado: sección 5 bis, que remite al ciclo programado.
