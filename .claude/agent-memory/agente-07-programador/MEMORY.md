@@ -20,4 +20,12 @@ Sin enlaces de Drive, IDs ni datos personales: este archivo está en un reposito
 ## Errores que hay que evitar
 - No dar por buena una prueba que pasa contra el reloj real: fijar `ahora` en las pruebas.
 - `cmd | head -1` dentro de un bloque redirigido produce BrokenPipe: no truncar la salida que va a test_results.txt.
-- El handoff-validator del repositorio es v1.0 y rechaza los HANDOFF v2.1 (está pendiente la OT-2026-005); validar el v2.1 con yaml.safe_load más comprobaciones propias.
+- Para validar un HANDOFF v2.1 usar `herramientas/handoff-validator/handoff_validator_v2.py` (OT-2026-005); la v1.0 rechaza los v2.1 y no se toca.
+
+## Lecciones de OT-2026-005 (validador HANDOFF v2.1)
+- Probar los catálogos contra 2-3 HANDOFF reales antes de fijarlos: los formatos de entregable de la plantilla (doc, slides, sheet, pdf, png, mp4, mp3) no cubren los reales (carpeta, py, md, txt, json, html, gs, js). Lo no cerrado en el contrato va como aviso con modo estricto opcional.
+- En CATALOGOS el agente 04 se llama AGENTE_04_ASISTENCIAS (en v1.0 era AGENTE_04_ASISTENCIAS_ENTREGAS). actividad_id vacío es legítimo en OT de mantenimiento.
+- download_file_content de Drive guarda el archivo en tool-results; copiarlo a un subdirectorio propio del scratchpad y leerlo con `python3 -I`. Nunca al repositorio.
+- Los mensajes de error del validador nombran el campo, nunca el valor: así la salida se puede pegar en bitácora sin filtrar contenido.
+- Si la OT pide commit en la rama actual, no sirve un worktree (la rama ya está en el checkout principal): añadir solo los archivos propios con `git add <rutas>` y comprobar `git status` limpio antes.
+- La sesión se cortó por límite de uso a mitad de la OT: registrar en bitácora pronto (inicio y en_curso) permitió retomar sin duplicar filas.
