@@ -15,7 +15,6 @@ Guardar en 07_PROGRAMAS_Y_SCRIPTS / NOMBRE_HERRAMIENTA:
 - Cuando el repositorio de GitHub esté habilitado, el código se versiona allí y en Drive queda el enlace y la versión publicada.
 
 ## Tareas abiertas conocidas
-- Actualizar handoff-validator (F3-001, protocolo v1.0 de 13 campos) al **HANDOFF v2.0** del contrato: nuevos campos handoff_id, ot_id, plataforma, calidad y entregables con URL obligatoria.
 - Evaluar un script de apoyo para asignar IDs consecutivos y añadir filas a la bitácora sin errores de formato.
 
 ## Criterios de calidad propios

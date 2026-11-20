@@ -24,7 +24,7 @@ sistema/
   CONTRATO_COMUN.md            Reglas comunes únicas
   agentes/AGENTE_00..08.md     Fichas de especialidad (también en Drive para ChatGPT)
   plantillas/HANDOFF_v2.1.yaml
-herramientas/handoff-validator Validador de HANDOFF (v1.0; migración a v2.1: OT-2026-005)
+herramientas/handoff-validator Validador de HANDOFF (v2.1 vigente en handoff_validator_v2.py; v1.0 conservada)
 docs/ESQUEMA_HOJAS.md
 CHANGELOG.md
 ```
@@ -63,7 +63,8 @@ Cada especialista anota en su memoria lo que aprende en cada orden de trabajo y 
 
 ```
 cd herramientas/handoff-validator
-python -B -m unittest -v test_validator
+python -B -m unittest -v test_validator_v2   # v2.1: 42/42
+python -B -m unittest -v test_validator      # v1.0: 24/24
 ```
 
-Requiere Python 3 y PyYAML. Resultado esperado: 24/24.
+Requiere Python 3 y PyYAML.
