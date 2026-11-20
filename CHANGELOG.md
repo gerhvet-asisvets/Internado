@@ -1,6 +1,13 @@
 # Registro de cambios del sistema
 
-## 2.8 — 2026-11-19 (propuesta, pendiente de evaluación del Coordinador)
+## 2.8 — 2026-11-20
+- **Evaluación:** OT-2026-005 aprobada por el Coordinador (EV-2026-018, 10/10) y cerrada por el SUPERVISOR (2026-11-20). Formatos de entregable fuera de plantilla: siguen como aviso (decisión del SUPERVISOR).
+- **Skills mejoradas con 17 propuestas_skill aprobadas por el SUPERVISOR (2026-11-20):**
+  - investigacion-sanitaria v1.2 (HO-2026-014): procedimiento de manuales de inspección por especie; checklist de DOI con efetch y de filas de control oficial fuera del árbol P1-P4.
+  - diseno-audiovisual v1.2 (HO-2026-011, 015 y 017): tríptico con TrueType y TrimBox, medición de cajas a 24 pt, cambio puntual con comparación parte a parte, material derivado desde lista con fragmentos literales; checklist de unidades partidas en Slides, impresos HTML de varias páginas y esquemas propios; lección de D8.
+  - programacion-herramientas v1.1 (HO-2026-018 y 019): validar todo HANDOFF antes de subirlo, pruebas de Apps Script sin despliegue, fórmulas con punto y coma en es_ES, fechas en America/Panama, catálogos probados contra archivos reales.
+  - coordinacion-internado: validar cada HANDOFF recibido con handoff_validator_v2.py antes de evaluarlo.
+- Ficha de AGENTE_07 y README: OT-2026-005 retirada de tareas abiertas; instrucciones de prueba de la v2.1.
 - **handoff-validator v2.1** (OT-2026-005, HO-2026-019, aprobada por el SUPERVISOR el 2026-11-19): `handoff_validator_v2.py` valida el formato HANDOFF v2.1 del CONTRATO_COMUN v2.2 (sección 6). Comprueba los 17 campos obligatorios y el opcional `propuesta_skill`, `handoff_version: '2.1'`, IDs HO-AAAA-NNN, OT-AAAA-NNN y ACT-AAAA-NNN o vacío, catálogo de 9 agentes, destino siempre el Coordinador, plataforma, tipo, estados de la sección 8, entregables con URL completa obligatoria (salvo tipo consulta), fuentes, calidad y propuesta_skill. Conserva los límites de seguridad, la huella sha256 y la detección de repetidos de la v1.0, y añade el aviso de mismo handoff_id con contenido diferente, varios archivos por llamada y `--estricto-formato`.
 - `test_validator_v2.py`: 42 pruebas con datos ficticios (W01-W42), todas correctas (`test_results_v2.txt`). Incluye una prueba que impide enlaces e IDs de Drive en los archivos del validador.
 - `SKILL.md` del validador explica el uso de la v2.1 y de la v1.0. Los archivos de la v1.0 (`handoff_validator.py`, `test_validator.py`, `test_results.txt`) quedan sin cambios.

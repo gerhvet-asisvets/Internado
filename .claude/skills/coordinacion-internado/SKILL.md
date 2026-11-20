@@ -21,6 +21,7 @@ user-invocable: false
 - En el despacho van todos los IDs de Drive y Sheets que el especialista necesite.
 
 ## 3. Evaluar
+- Antes de evaluar, pasar el HANDOFF por `herramientas/handoff-validator/handoff_validator_v2.py` (descargado al scratchpad). Si es rechazado, devolverlo (requiere_correccion) con el texto de error; si es válido, anotar la `huella_sha256` y revisar las advertencias.
 - Abrir los archivos completos, no solo el HANDOFF.
 - Puntuar c1 a c5 de 0 a 2. Dictamen:
   - 8 a 10: aprobado.
